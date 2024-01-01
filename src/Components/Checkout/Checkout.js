@@ -74,6 +74,7 @@ const Checkout = () => {
 
         if (res.ok) {
           setOrderPlaced(true);
+          alert("Plan is Activated");
           console.log("Order placed successfully!");
         } else {
           console.error("Failed to place order");
@@ -183,12 +184,12 @@ const Checkout = () => {
               onClick={handlePlaceOrder}
               className={`mt-4 mb-8 w-full rounded-md ${
                 orderPlaced
-                  ? "bg-gray-500 cursor-not-allowed"
-                  : "bg-gray-900 hover:bg-gray-800"
+                  ? "bg-blue-500 cursor-not-allowed"
+                  : "bg-blue-500 hover:bg-blue-600"
               } px-6 py-3 font-medium text-white `}
               disabled={orderPlaced}
             >
-              {orderPlaced ? "Placed" : "Place Order"}
+              {orderPlaced ? "Plan is Activated" : "Place Order"}
             </button>
           </div>
         </div>
