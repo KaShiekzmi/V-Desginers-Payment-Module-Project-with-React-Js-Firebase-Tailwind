@@ -55,4 +55,4 @@ Your app is ready to be deployed!
 
 ![e_statement (12)_page-0001](https://github.com/KaShiekzmi/V-Desginers-Payment-Module-Project-with-React-Js-Firebase-Tailwind/assets/114513868/accb508b-ce9a-4bdb-8f90-99a26eb690dd)
 
-### Remember, our payment module is so secure, even your pet cat can't hack it! 🐱💻
+### Remember, if the payment process ever feels like a magic trick, it's just our way of making your money disappear into the realm of awesome products! 🎩✨
