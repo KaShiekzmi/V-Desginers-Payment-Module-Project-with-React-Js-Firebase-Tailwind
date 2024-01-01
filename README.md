@@ -2,6 +2,9 @@
 
 The V-Designers Payment Module live on [link](https://v-designers-kashie.onrender.com/), a React component, simplifies checkout by securely handling payment details with built-in validation. Additionally, users can view transactions and generate downloadable e-statements in PDF format.
 
+## Figma Designs
+[Figma Designs](https://www.figma.com/file/2xVLkHVqbs230EWt3m0BQJ/V-Designers-Payment-Module?type=design&node-id=0-1&mode=design)
+
 ## Technologies
 
 - **HTML**
