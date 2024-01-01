@@ -36,3 +36,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+## Screenshots
+
+### Pricing Page
+
+![screencapture-localhost-3000-pricing-2024-01-01-16_35_00](https://github.com/KaShiekzmi/V-Desginers-Payment-Module-Project-with-React-Js-Firebase-Tailwind/assets/114513868/292b717d-e4d0-4567-a8eb-f94ed537a70c)
