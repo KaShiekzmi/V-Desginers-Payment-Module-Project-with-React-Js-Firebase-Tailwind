@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-
 const ViewAllTransactions = () => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +10,7 @@ const ViewAllTransactions = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://v-designers-b441a-default-rtdb.firebaseio.com/creditcards.json"
+          "https://v-designers-b441a-default-rtdb.firebaseio.com/transactions.json"
         );
 
         if (!response.ok) {
@@ -47,32 +46,41 @@ const ViewAllTransactions = () => {
     pdf.setProperties({
       title: "V-Designers - E-Statement",
     });
-  
+
     pdf.setFontSize(18);
     pdf.text("V-Designers - E-Statement", 20, 20);
-  
-    const header = ["Transaction ID", "Card Holder", "Card Number", "Expiry Date", "CVC", "Amount", "Time"];
-    const rows = transactions.map(transaction => [
+
+    const header = [
+      "Transaction ID",
+      "Manager",
+      "Card Holder",
+      "Card Number",
+      "Expiry Date",
+      "CVC",
+      "Amount",
+      "Time",
+    ];
+    const rows = transactions.map((transaction) => [
       transaction.id,
+      transaction.Manager,
       transaction.cardHolder,
       transaction.cardNumber,
       transaction.expiryDate,
       transaction.cvc,
       transaction.Amount,
-      transaction.formattedDateTime
+      transaction.formattedDateTime,
     ]);
-  
+
     pdf.autoTable({
       startY: 40,
       head: [header],
       body: rows,
-      headStyles: { fillColor: [41, 128, 185], textColor: 255, fontSize: 12 },
+      headStyles: { fillColor: [41, 128, 185], textColor: 255, fontSize: 10 },
       bodyStyles: { fontSize: 10 },
     });
-  
+
     pdf.save("e_statement.pdf");
   };
-  
 
   return (
     <section className="text-gray-600 body-font">
@@ -91,19 +99,11 @@ const ViewAllTransactions = () => {
                 <div className="bg-gray-100 rounded flex p-4 h-full items-center">
                   <div>
                     <span className="title-font font-medium">
-                      <strong>Card Holder:</strong> {transaction.cardHolder}
+                      <strong>Transaction ID:</strong> {transaction.id}
                     </span>
                     <br />
                     <span className="title-font font-medium">
-                      <strong>Card Number:</strong> {transaction.cardNumber}
-                    </span>
-                    <br />
-                    <span className="title-font font-medium">
-                      <strong>Expiry Date:</strong> {transaction.expiryDate}
-                    </span>
-                    <br />
-                    <span className="title-font font-medium">
-                      <strong>CVC:</strong> {transaction.cvc}
+                      <strong>Manager:</strong> {transaction.Manager}
                     </span>
                     <br />
                     <span className="title-font font-medium">
@@ -111,7 +111,7 @@ const ViewAllTransactions = () => {
                     </span>
                     <br />
                     <span className="title-font font-medium">
-                      <strong>Time:</strong> {transaction.formattedDateTime}
+                      <strong>Date:</strong> {transaction.formattedDateTime}
                     </span>
                   </div>
                 </div>
@@ -121,7 +121,7 @@ const ViewAllTransactions = () => {
         </div>
         <button
           onClick={generatePDF}
-          className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+          className="flex mx-auto mt-16 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg"
         >
           Generate E-Statement
         </button>

